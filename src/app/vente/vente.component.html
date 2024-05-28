@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    @for(vente of listeVente; track vente.id) {
+
+      <div class="col-6 mt-4">
+        <mat-card class="vente-card">
+          <mat-card-header>
+            <img
+            mat-card-image
+            src="https://picsum.photos/400"
+            alt="Photo of a Shiba Inu"/>
+            <mat-card-title>
+              <span>{{ vente.vehicule }}</span>
+            </mat-card-title>
+            <mat-card-subtitle>{{ vente.prix }}
+            </mat-card-subtitle>
+
+          </mat-card-header>
+          <mat-card-content>
+              <p>
+                {{ vente.annee }}
+              </p>
+              <p>
+                {{ vente.date_rentre }}
+            </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary">Plus de details</button>
+            <!-- <button mat-raised-button color="accent">Modifier</button>
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="onSupprimerProduit(vente.id)"
+            >
+              Supprimer
+            </button> -->
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+    }
+  </div>
+</div>

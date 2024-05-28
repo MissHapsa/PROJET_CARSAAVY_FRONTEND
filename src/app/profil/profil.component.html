@@ -1,0 +1,38 @@
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<!-- Change code below this line -->
+
+<body>
+<div class="profile-card">
+  <div class="avatar"><img src="https://images.pexels.com/photos/375880/pexels-photo-375880.jpeg?auto=compress&cs=tinysrgb&w=800" alt="profile-img"></div>
+  <div class="salutation">
+    <div class="name"><p >Email:{{ authentification.utilisateur.sub }}</p></div>
+    <div class="name"><p >Nom: {{ authentification.utilisateur.nom}}</p></div>
+    <div class="name"><p >Prenom:{{ authentification.utilisateur.prenom }}</p></div>
+    <div class="designation">@if(authentification.utilisateur.role == "ROLE_ADMIN") {
+
+      <p class="name">Vous etes administrateur</p>
+    }
+      @if(authentification.utilisateur.role == "ROLE_CLIENT") {
+
+        <p class="name" >Vous etes client</p>
+      }
+      @if(authentification.utilisateur.role == "ROLE_TECH") {
+
+        <p class="name">Vous etes technicien</p>
+      }</div>
+  </div>
+  <div class="options">
+    <button class="edit-profile"><img src="https://pics.freeicons.io/uploads/icons/png/5157340221529652583-64.png" alt="" class="btn-img"><span>Edit Profile</span></button>
+  </div>
+</div>
+</body>
+<!-- Change code above this line -->
+
+

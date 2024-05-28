@@ -1,0 +1,26 @@
+.actuelle {
+  color: red;
+}
+.custom-btn {
+  border-radius: 15px;
+  padding: 10px 20px;
+  margin: 5px;
+  width: 150px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-btn:hover {
+  background-color: #0056b3;
+}
+
+.custom-btn-secondary {
+  background-color: #6c757d;
+}
+
+.custom-btn-secondary:hover {
+  background-color: #5a6268;
+}
+
