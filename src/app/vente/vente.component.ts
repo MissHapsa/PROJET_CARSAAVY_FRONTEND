@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-vente',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule],
+  imports: [MatCardModule, MatButtonModule, RouterLink],
   templateUrl: './vente.component.html',
   styleUrl: './vente.component.scss'
 })
@@ -31,7 +32,7 @@ export class VenteComponent {
       .delete('http://localhost:8080/vente/' + id)
       .subscribe((resultat) => {
         console.log(resultat);
-       
+
         this.listeVente = this.listeVente.filter(vente => vente.id !== id);
       }, (error) => {
         console.error('Erreur lors de la suppression du produit', error);

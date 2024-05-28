@@ -9,9 +9,11 @@
 <!-- Change code below this line -->
 
 <body>
+  <button class="btn-return" routerLink="/accueil">Retour</button>
+
 <div class="profile-card">
   <div class="avatar"><img src="https://images.pexels.com/photos/375880/pexels-photo-375880.jpeg?auto=compress&cs=tinysrgb&w=800" alt="profile-img"></div>
-  <div class="salutation">
+  <div class="bonjour">
     <div class="name"><p >Email:{{ authentification.utilisateur.sub }}</p></div>
     <div class="name"><p >Nom: {{ authentification.utilisateur.nom}}</p></div>
     <div class="name"><p >Prenom:{{ authentification.utilisateur.prenom }}</p></div>

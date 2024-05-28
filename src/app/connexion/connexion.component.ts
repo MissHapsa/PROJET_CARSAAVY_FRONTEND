@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { RouterLink } from '@angular/router';
 import {
   FormBuilder,
   FormGroup,
@@ -23,6 +24,7 @@ import { AuthentificationService } from '../authentification.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterLink,
   ],
   templateUrl: './connexion.component.html',
   styleUrl: './connexion.component.scss',

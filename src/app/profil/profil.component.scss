@@ -21,6 +21,19 @@ body {
   background-color: var(--main-bg);
 }
 
+.btn-return {
+  background: #ffff;
+  padding: 12px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 15px;
+  position: absolute;
+  top: 20%;
+  right: 10%;
+}
+
 .profile-card {
   background-color: white;
   color: var(--main-txt-color);

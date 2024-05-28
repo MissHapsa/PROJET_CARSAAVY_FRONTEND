@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -24,6 +24,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterLink,
   ],
   templateUrl: './inscription.component.html',
   styleUrl: './inscription.component.scss',

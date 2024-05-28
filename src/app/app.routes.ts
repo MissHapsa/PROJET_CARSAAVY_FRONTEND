@@ -20,7 +20,7 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'profil', component: ProfilComponent, canActivate: [userGuard] },
   { path: 'confirmation', component: ConfirmationComponent },
-  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNonTrouveComponent }
 
 ];
