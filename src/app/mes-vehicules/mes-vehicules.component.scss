@@ -49,8 +49,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 20px;
+  flex-direction: raw;
+  gap: 120px;
   position: relative;
   right: 20%;
 }

@@ -9,13 +9,16 @@
 <!-- Change code below this line -->
 
 <body>
-<button class="btn-return" routerLink="/accueil">Retour</button>
+<button class="btn-return" routerLink="/profil">Retour</button>
 <div class="profile-card">
   <div class="avatar"><img src="http://localhost:4200/assets/logo1.png" alt="profile-img"></div>
   <div class="bonjour">
-    <div class="name"><p >Email:{{ authentification.utilisateur.sub }}</p></div>
-    <div class="name"><p >Nom: {{ authentification.utilisateur.nom}}</p></div>
-    <div class="name"><p >Prenom:{{ authentification.utilisateur.prenom }}</p></div>
+    <div class="name"><p >Rue:{{ authentification.utilisateur.rue }}</p></div>
+    <div class="name"><p >Code Postale: {{ authentification.utilisateur.cp}}</p></div>
+    <div class="name"><p >Ville:{{ authentification.utilisateur.ville }}</p></div>
+    <div class="name"><p >Email:{{ authentification.utilisateur.email }}</p></div>
+    <div class="name"><p >Telephone:{{ authentification.utilisateur.tel }}</p></div>
+
 
     <div class="designation">@if(authentification.utilisateur.role == "ROLE_ADMIN") {
 
@@ -32,19 +35,11 @@
   </div>
   <div class="options">
 
-    <button class="mes-informations" routerLink="/userinfos">
+    <button class="mes-informations" routerLink="/user-edit">
       <img src="http://localhost:4200/assets/logo_infos.png" alt="" class="btn-img">
-      <span>Mes informations</span>
+      <span>Modifier</span>
     </button>
-    <button class="mes-vehicules" routerLink="/mes-vehicules">
-      <img src="http://localhost:4200/assets/logo_car.png" alt="" class="btn-img">
-      <span>Mes véhicules</span>
-    </button>
-    <button class="mes-rendezvous" routerLink="/reservations">
-      <img src="http://localhost:4200/assets/logo_rdv1.png" alt="" class="btn-img">
-      <span>Mes <br>
-        Rendez-vous</span>
-    </button>
+
   </div>
 </div>
 </body>

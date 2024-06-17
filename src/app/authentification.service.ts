@@ -4,19 +4,26 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AuthentificationService {
-  jwt: string | undefined;
-  role(arg0: string) {
-    throw new Error('Method not implemented.');
-  }
-  getUserId(
-    nom = 'nom',
-    prenom = 'prenom',
-    email = 'email'
-  ) {
-    throw new Error('Method not implemented.');
-  }
+
+
+  // updateUser(value: any) {
+  //   throw new Error('Method not implemented.');
+  // }
+  // jwt: string | undefined;
+  // role(arg0: string) {
+  //   throw new Error('Method not implemented.');
+  // }
+  // getUserId(
+  //   nom = 'nom',
+  //   prenom = 'prenom',
+  //   email = 'email'
+  // ) {
+  //   throw new Error('Method not implemented.');
+  // }
 
   utilisateur: any;
+  utilisateurConnecte: any;
+  updateUser: any;
 
   constructor() {}
 

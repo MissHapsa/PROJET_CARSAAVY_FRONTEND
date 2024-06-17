@@ -5,34 +5,24 @@
     @for(prestation of listePrestation; track prestation.id) {
 
       <div class="col-6 mt-4">
-        <mat-card class="prestation-card">
-          <mat-card-header>
-            <img
-            mat-card-image
-            src="https://picsum.photos/400"
-            alt="Photo of a Shiba Inu"/>
-            <mat-card-title>
+        <div class="prestation-card">
+          <div class="prestation-card-header">
+            <img class="prestation-card-image" src="https://picsum.photos/400" alt="Photo of a Shiba Inu"/>
+            <div class="prestation-card-title">
               <span>{{ prestation.libelle }}</span>
-            </mat-card-title>
-          </mat-card-header>
-
-          <mat-card-content>
-            <p>
-              {{ prestation.description }}
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button color="primary">Plus de details</button>
-            <!-- <button mat-raised-button color="accent">Modifier</button>
-            <button
-              mat-raised-button
-              color="warn"
-              (click)="onSupprimerProduit(prestation.id)"
-            >
-              Supprimer
-            </button> -->
-          </mat-card-actions>
-        </mat-card>
+            </div>
+          </div>
+          <div class="prestation-card-content">
+            <p>{{ prestation.description }}</p>
+          </div>
+          <div class="prestation-card-actions">
+            <button class="details-button">Plus de détails</button>
+            <!--
+            <button class="modify-button">Modifier</button>
+            <button class="delete-button" (click)="onSupprimerProduit(prestation.id)">Supprimer</button>
+            -->
+          </div>
+        </div>
       </div>
 
     }

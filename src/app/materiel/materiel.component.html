@@ -1,0 +1,27 @@
+<div class="materiel-container">
+<button class="btn-return" routerLink="/accueil">Retour</button>
+
+<div class="row">
+    @for(materiel of listeMateriel; track materiel.id) {
+
+      <div class="col-6 mt-4">
+        <div class="materiel-card">
+          <div class="materiel-card-header">
+            <img class="materiel-card-image" src="https://picsum.photos/400" alt="Photo of a Shiba Inu"/>
+            <div class="materiel-card-title">
+              <span>{{ materiel.nom }}</span>
+            </div>
+          </div>
+          <div class="materiel-card-actions">
+            <button class="details-button">Reserver</button>
+            <!--
+            <button class="modify-button">Modifier</button>
+            <button class="delete-button" (click)="onSupprimerProduit(prestation.id)">Supprimer</button>
+            -->
+          </div>
+        </div>
+      </div>
+
+    }
+  </div>
+</div>

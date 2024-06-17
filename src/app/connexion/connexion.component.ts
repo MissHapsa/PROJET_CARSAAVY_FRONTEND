@@ -36,8 +36,8 @@ export class ConnexionComponent {
   authentification = inject(AuthentificationService);
 
   formulaire: FormGroup = this.formBuilder.group({
-    email: ['hapsatou@gmail.com', [Validators.email, Validators.required]],
-    passeword: ['missyhk1', [Validators.required]],
+    email: ['', [Validators.email, Validators.required]],
+    passeword: ['', [Validators.required]],
   });
 
   erreurConnexion: boolean = false;

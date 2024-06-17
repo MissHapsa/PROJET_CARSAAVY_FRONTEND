@@ -1,0 +1,39 @@
+<body>
+  <div class="ajout">
+    <button class="btn-return" routerLink="/mes-vehicules">Retour</button>
+
+    <div class="login-vehicule"></div>
+      <form class="formulaire ajout-container" [formGroup]="formulaire" (ngSubmit)="onSubmit()">
+        <h1>Ajouter votre voiture</h1>
+        <br>
+        <mat-label>Plaque Imattriculation</mat-label>
+        <input matInput formControlName="immat" />
+        <br>
+        <br>
+        <mat-label>Année</mat-label>
+        <input matInput formControlName="annee" />
+        <br>
+        <mat-form-field>
+          <mat-label>Marque</mat-label>
+          <mat-select (selectionChange)="onSelectionMarque()" [(ngModel)]="selectedMarque" [ngModelOptions]="{standalone:true}">
+            @for(marque of listeMarque; track marque.id){
+              <mat-option [value]="marque">{{ marque.nom }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Modele</mat-label>
+          <mat-select [(ngModel)]="selectedModele" [ngModelOptions]="{standalone:true}">
+            @for(modele of listeModele; track modele.id){
+              <mat-option [value]="modele">{{ modele.nom }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary" routerLink="/mes-vehicules">
+          Ajouter votre voiture
+        </button>
+      </form>
+
+  </div>
+  </body>

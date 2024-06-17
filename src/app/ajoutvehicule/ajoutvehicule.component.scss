@@ -38,11 +38,11 @@ body {
   right: 10%;
 }
 
-.profile-card {
+.ajout {
   background-color: white;
   color: var(--main-txt-color);
   width: 700px;
-  height: 400px;
+  height: 500px;
   border-radius: 10px;
   box-shadow: 0 0 5px 5px #e1e7fb;
   border: 5px solid #e95b19;
@@ -88,14 +88,14 @@ body {
 }
 
 
-.options {
+.container {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
   gap: 10px;
 }
 
-.options button {
+.container button {
   background-color: #e95b19;
   border: none;
   color: black;
@@ -103,24 +103,20 @@ body {
   padding: 10px 15px;
   border-radius: 15px;
   cursor: pointer;
-  display: flex;
   align-items: center;
   width: 200px;
   height: 50px;
+  transition: all 500ms ease;
+
 }
 
-button img.btn-img {
-  margin-right: 8px;
-  width: 24px;
-  height: 24px;
-}
 
 button:hover {
   background-color: darkorange;
 }
 
 button:active {
-  background-color: #ff8c00;
+  background-color: #e95b19;
 }
 .options>button>.btn-img {
   width: 30px;

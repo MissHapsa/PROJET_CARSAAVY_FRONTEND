@@ -1,4 +1,4 @@
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -24,7 +24,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterLink,
+    RouterLink, RouterLinkActive
   ],
   templateUrl: './inscription.component.html',
   styleUrl: './inscription.component.scss',
@@ -36,14 +36,19 @@ export class InscriptionComponent {
   formulaire: FormGroup = this.formBuilder.group({
     nom: ['hapsa', [Validators.required]],
     prenom: ['konte', [ Validators.required]],
+    rue: ['1 rue de la paix', [Validators.required]],
+    ville: ['Paris', [Validators.required]],
+    cp: ['75001', [Validators.required]],
+    tel: ['0102030405', [Validators.required]],
     email: ['hapsatou@gmail.com', [Validators.email, Validators.required]],
-    passeword: ['missyhk1', [Validators.required]],
+    passeword: ['root', [Validators.required]],
+
   });
 
   afficheMotDePasse = false;
   afficheMotDePasseConfirme = false;
 
-  confirmationMotDePasse: string = 'missyhk1';
+  confirmationMotDePasse: string = 'root';
 
   motDePasseDifferent: boolean = false;
   router: any;
@@ -56,7 +61,7 @@ export class InscriptionComponent {
       this.http
         .post('http://localhost:8080/inscription', this.formulaire.value)
         .subscribe((resultat) => {
-          this.router.navigateToLogin('/confirmation');
+          alert('Inscription réussie ! Vous pouvez maintenant vous connecter');
         })
     }
   }
