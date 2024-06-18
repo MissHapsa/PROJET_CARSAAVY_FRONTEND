@@ -14,7 +14,10 @@
   <div class="container">
     <div class="landing-page-settings">
       <div class="landing-page-text">
-        <h1>Bienvenue sur votre espace personnel
+        <h1>Bienvenue sur votre espace personnel <br>
+          <p style="color: #c7381a; font-size: 64px;">
+          {{ authentification.utilisateur.prenom }}
+          </p>
         </h1>
         <div class="button-container">
         <button class="btn profil" routerLink="/profil">MON COMPTE</button>

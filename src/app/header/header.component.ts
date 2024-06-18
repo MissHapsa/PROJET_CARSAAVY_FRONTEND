@@ -15,6 +15,6 @@ export class HeaderComponent {
 
   onDeconnexion() {
     this.authentification.deconnexion();
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/connexion');
   }
 }
