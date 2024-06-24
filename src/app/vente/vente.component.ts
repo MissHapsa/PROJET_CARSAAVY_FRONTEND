@@ -16,6 +16,7 @@ export class VenteComponent {
   http: HttpClient = inject(HttpClient);
 
   listeVente: any[] = [];
+marque: any;
 
   ngOnInit(): void {
     this.http

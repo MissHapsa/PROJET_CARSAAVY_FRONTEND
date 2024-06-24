@@ -1,0 +1,49 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("http://localhost:4200/assets/attente2.png");
+   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+
+}
+.login-triangle {
+  background-color: white;
+  color: var(--main-txt-color);
+  width: 700px;
+  height: 550px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 5px #e1e7fb;
+  border: 5px solid #e95b19;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  right: 20%;
+}
+
+  .btn-return {
+  background: #ffff;
+  padding: 12px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 15px;
+  position: absolute;
+  top: 20%;
+  right: 10%;
+}
+button:hover {
+  background-color: darkorange;
+}
+
+button:active {
+  background-color: #ff8c00;
+}
+
+

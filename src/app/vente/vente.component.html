@@ -1,4 +1,42 @@
-<button class="btn-return" routerLink="/accueil">Retour</button>
+<div class="prestation-container">
+  <button class="btn-return" routerLink="/accueil">Retour</button>
+
+  <div class="row">
+    @for(vente of listeVente; track vente.id) {
+
+      <div class="col-6 mt-4">
+        <div class="prestation-card">
+          <div class="prestation-card-header">
+            <img class="prestation-card-image" src="https://postimg.cc/zbKn4Vn9" alt="Photo of a Shiba Inu"/>
+            <div class="prestation-card-title">
+              <span>{{ vente.vehicule.modele.marque.nom }} {{ vente.vehicule.modele.nom }}</span>
+              <br>
+            </div>
+          </div>
+          <div class="prestation-card-content">
+            <p>{{ vente.immat}} </p>
+            <p>{{ vente.annee }}</p>
+            <p>{{ vente.prix }}</p>
+            <p>{{ vente.date_rentre }}</p>
+          </div>
+          <div class="prestation-card-actions">
+            <button class="details-button">Reserver un essai</button>
+            <!--
+            <button class="modify-button">Modifier</button>
+            <button class="delete-button" (click)="onSupprimerProduit(prestation.id)">Supprimer</button>
+            -->
+          </div>
+        </div>
+      </div>
+
+    }
+  </div>
+</div>
+
+
+
+
+<!-- <button class="btn-return" routerLink="/accueil">Retour</button>
 <div class="container">
   <div class="row">
     @for(vente of listeVente; track vente.id) {
@@ -26,7 +64,7 @@
             </mat-card-content>
           <mat-card-actions>
             <button mat-raised-button color="primary">Plus de details</button>
-            <!-- <button mat-raised-button color="accent">Modifier</button>
+          <button mat-raised-button color="accent">Modifier</button>
             <button
               mat-raised-button
               color="warn"
@@ -34,10 +72,10 @@
             >
               Supprimer
             </button> -->
-          </mat-card-actions>
+          <!-- </mat-card-actions>
         </mat-card>
       </div>
 
     }
   </div>
-</div>
+</div> -->

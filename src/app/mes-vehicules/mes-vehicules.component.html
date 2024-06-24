@@ -1,30 +1,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
-
-<!-- Change code below this line -->
 
 <body>
   <button class="btn-return" routerLink="/profil">Retour</button>
 
-<div class="profile-card">
-  <div class="mes-vehicules-section">
-    <h2>Mes véhicules</h2>
-
-<p>
-        {{ utilisateur.vehicules[0].immat }}
-</p>
-
-  </div>
-  <div class="options">
+  <div class="profile-card">
+    <div class="mes-vehicules-section">
+      <div *ngFor="let vehicule of utilisateur.vehicules" class="vehicule_infos">
+        <p><strong>Plaque d'administration:</strong> {{ vehicule.immat }}</p>
+        <p><strong>Modele:</strong> {{ vehicule.modele.nom }} </p>
+        <p><strong>Marque:</strong> {{ vehicule.modele.marque.nom }}</p>
+        <button (click)="supprimerVehicule(vehicule.id)">Supprimer</button>
+      </div>
+    </div>
+    <div class="options">
       <button class="mes-informations" routerLink="/ajoutvehicule">
-      <img src="http://localhost:4200/assets/logo_infos.png" alt="" class="btn-img">
-      <span>Ajouter un vehicule</span>
+        <img src="http://localhost:4200/assets/logo_infos.png" alt="" class="btn-img">
+        <span>Ajouter un vehicule</span>
       </button>
+    </div>
   </div>
-</div>
 </body>
+
 
 

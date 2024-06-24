@@ -14,8 +14,7 @@ import { PrestationListComponent } from './prestation-list/prestation-list.compo
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { MesVehiculesComponent } from './mes-vehicules/mes-vehicules.component';
 import { UserInfosComponent } from './userinfos/userinfos.component';
-import { UserEditComponent } from './user-edit/user-edit.component';
-
+import {EditProfilComponent} from "./edit-profil/edit-profil.component";
 
 export const routes: Routes = [
   { path: 'accueil', component: AccueilComponent, canActivate: [userGuard] },
@@ -26,12 +25,11 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'profil', component: ProfilComponent, canActivate: [userGuard] },
   { path: 'confirmation', component: ConfirmationComponent },
-  { path:'mes-vehicules', component: MesVehiculesComponent, canActivate: [userGuard] },
+  { path: 'mes-vehicules', component: MesVehiculesComponent, canActivate: [userGuard] },
   { path: 'userinfos', component: UserInfosComponent, canActivate: [userGuard] },
-  { path: 'ajoutvehicule', component: AjoutVehiculeComponent },
-  { path: 'materiel', component: MaterielComponent},
-  { path: 'user-edit', component: UserEditComponent, canActivate: [userGuard] },
+  { path: 'materiel', component: MaterielComponent },
+  { path: 'ajoutvehicule', component: AjoutVehiculeComponent , canActivate: [ userGuard] },
+  { path: 'edit-profil', component: EditProfilComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNonTrouveComponent }
-
 ];

@@ -5,12 +5,9 @@ import {MatInput} from "@angular/material/input";
 import {MatOption} from "@angular/material/autocomplete";
 import {MatSelect} from "@angular/material/select";
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
-import { Router} from "@angular/router";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {ActivatedRoute, Router} from "@angular/router";
 import {MatIcon} from "@angular/material/icon";
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { AuthentificationService } from '../authentification.service';
-
 
 
 
@@ -29,11 +26,11 @@ import { AuthentificationService } from '../authentification.service';
         MatError,
         MatIcon,
         MatIconButton,
-        MatSuffix,
-        RouterLink, RouterLinkActive
+        MatSuffix
+
     ],
   templateUrl: './ajoutvehicule.component.html',
-  styleUrl: './ajoutvehicule.component.scss',
+  styleUrl: './ajoutvehicule.component.scss'
 })
 export class AjoutVehiculeComponent implements OnInit {
   formBuilder: FormBuilder = inject(FormBuilder);
@@ -41,41 +38,31 @@ export class AjoutVehiculeComponent implements OnInit {
   router: Router = inject(Router);
 
   formulaire: FormGroup = this.formBuilder.group({
-    plaqueVoiture: ['', [Validators.required]],
+    immat: ['', [Validators.required]],
   });
+
   listeMarque: any[] = [];
   listeModele: any[] = [];
   listeModeleFiltre: any[] = [];
 
+
+
   selectedMarque: any = null;
   selectedModele: any = null;
-  authentification: any;
-  utilisateurConnecte: any;
-
-  constructor(private authentificationService: AuthentificationService) { }
 
   ngOnInit(): void {
     this.http
-      .get<any[]>('http://localhost:8080/marque/liste')
+      .get<any[]>('http://localhost:8080/marque')
       .subscribe((listeMarque) => (this.listeMarque = listeMarque));
     this.http
-      .get<any[]>('http://localhost:8080/modele/liste')
+      .get<any[]>('http://localhost:8080/modele')
       .subscribe((listeModele) => (this.listeModele = listeModele));
+
+
   }
 
-  onSelectionMarque() {
-    this.listeModeleFiltre = this.listeModele.filter(modele => modele.marque.nom == this.selectedMarque.nom)
-  }
-  recupererUtilisateurConnecte(): void {
-    this.http
-      .get<{ utilisateur: any }>(
-        'http://localhost:8080/utilisateur/' + this.authentification.authentificationAvecJwtLocalStorage()
-      )
-      .subscribe((utilisateur) => {
-        this.utilisateurConnecte = utilisateur.utilisateur;
-      }, (error) => {
-        console.error('Erreur lors de la récupération de l\'utilisateur', error);
-      });
+  onSelectionMarque(){
+    this.listeModeleFiltre = this.listeModele.filter(model => model.marque.nom == this.selectedMarque.nom)
   }
 
   onSubmit() {
@@ -83,14 +70,19 @@ export class AjoutVehiculeComponent implements OnInit {
     if (this.formulaire.valid) {
 
       const vehicule = this.formulaire.value;
-      vehicule.idModeleVoiture = this.selectedModele
+      vehicule.id_Modele = this.selectedModele
 
       this.http
-        .post('http://localhost:8080/vehicule', this.formulaire.value)
-        .subscribe((resultat) => {
-          alert('Enregistrement effectué');
-        })
-      this.router.navigate(['/mes-vehicules']);
+        .post('http://localhost:8080/vehicule', vehicule)
+        .subscribe((resultat) => console.log(resultat));
+      this.router.navigateByUrl('/mesvehicules');
+
+
     }
   }
+
+
+
+
+
 }

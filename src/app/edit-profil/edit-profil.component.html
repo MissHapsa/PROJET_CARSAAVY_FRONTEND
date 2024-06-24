@@ -1,0 +1,31 @@
+<body>
+  <div class="login">
+    <button class="btn-return" routerLink="/userinfos">Retour</button>
+
+    <div class="login-triangle">
+      <form class="formulaire login-container" [formGroup]="formulaire" (ngSubmit)="onSubmit()">
+        <h1>Modifier votre profil</h1>
+        <br>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+        <mat-label>Nom</mat-label>
+        <input matInput formControlName="nom" />
+        <mat-label>Prénom</mat-label>
+        <input matInput formControlName="prenom" />
+        <mat-label>Rue</mat-label>
+        <input matInput formControlName="rue" />
+        <mat-label>Code Postal</mat-label>
+        <input matInput formControlName="cp" />
+        <mat-label>Ville</mat-label>
+        <input matInput formControlName="ville" />
+        <mat-label>Téléphone</mat-label>
+        <input matInput formControlName="tel" />
+        <input type="hidden" formControlName="passeword" />
+        <br>
+        <button type="submit" mat-raised-button color="primary">
+          Modifier profil
+        </button>
+      </form>
+    </div>
+  </div>
+  </body>

@@ -36,7 +36,7 @@ export class ConnexionComponent {
   authentification = inject(AuthentificationService);
 
   formulaire: FormGroup = this.formBuilder.group({
-    email: ['', [Validators.email, Validators.required]],
+    email: ["lorem@outlook.sn", [Validators.email, Validators.required]],
     passeword: ['', [Validators.required]],
   });
 

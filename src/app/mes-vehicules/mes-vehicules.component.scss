@@ -86,7 +86,25 @@ body {
 .salutation>.designation {
   font-size: 15px;
 }
+.vehicule_infos {
+  border : 3px solid #e95b19;
+  font-size: 15px;
+  padding: 10px;
+  padding-bottom: 0px;
+  margin: 0px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.vehicule_infos p {
+  margin: 1px 0;
+}
+.mes-vehicules-section
+  {
 
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    }
 
 .options {
   display: flex;

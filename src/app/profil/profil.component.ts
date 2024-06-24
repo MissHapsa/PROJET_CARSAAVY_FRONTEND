@@ -21,7 +21,7 @@ export class ProfilComponent implements OnInit {
   recupererUtilisateurConnecte(): void {
     this.http
      .get<{ utilisateur: any }>(
-        'http://localhost:8080/utilisateur/' + this.authentification.authentificationAvecJwtLocalStorage()
+        'http://localhost:8080/utilisateur/' + this.authentification.utilisateur.id
       )
      .subscribe((utilisateur) => {
         this.utilisateurConnecte = utilisateur.utilisateur;
