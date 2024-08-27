@@ -1,0 +1,46 @@
+<body>
+  <div class="ajout">
+    <button class="btn-return" routerLink="/mes-vehicules">Retour</button>
+
+    <form class="formulaire ajout-container" (ngSubmit)="onSubmit()">
+      <h1>Ajouter Un Rendez-Vous</h1>
+      <br>
+
+      <!-- Champ de saisie pour la date de réservation -->
+      <mat-form-field appearance="fill">
+        <mat-label>Date de Réservation</mat-label>
+        <input matInput type="date" [(ngModel)]="dateReservation" name="dateReservation" placeholder="Choisir une date" required>
+      </mat-form-field>
+      <br>
+
+      <!-- Menu déroulant pour la sélection de la prestation -->
+      <mat-form-field appearance="fill">
+        <mat-label>Prestation</mat-label>
+        <mat-select (selectionChange)="onSelectionPrestation()" [(ngModel)]="selectedPrestation" [ngModelOptions]="{standalone:true}">
+          @for(prestation of listePrestations; track prestation.id){
+            <mat-option [value]="listePrestations">{{ prestation.libelle }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+      <!-- Menu déroulant pour la sélection du véhicule -->
+      <mat-form-field appearance="fill">
+        <mat-label>Véhicule</mat-label>
+        <mat-select (selectionChange)="onSelectionVehicule()" [(ngModel)]="selectedVehicule" [ngModelOptions]="{standalone:true}">
+         @for(vehicule of listeVehicules; track utilisateur.id){
+            <mat-option [value]="listeVehicules">{{ vehicule.immat }} </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+      <!-- Bouton pour soumettre le formulaire -->
+      <button type="submit" mat-raised-button color="primary">
+        Ajouter le Rendez-Vous
+      </button>
+    </form>
+  </div>
+
+</body>

@@ -1,5 +1,5 @@
 import { AjoutVehiculeComponent } from './ajoutvehicule/ajoutvehicule.component';
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { PageNonTrouveComponent } from './page-non-trouve/page-non-trouve.component';
@@ -15,6 +15,11 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { MesVehiculesComponent } from './mes-vehicules/mes-vehicules.component';
 import { UserInfosComponent } from './userinfos/userinfos.component';
 import {EditProfilComponent} from "./edit-profil/edit-profil.component";
+import { MesRdvComponent } from './mes-rdv/mes-rdv.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AjoutrdvComponent } from './ajoutrdv/ajoutrdv.component';
+
+
 
 export const routes: Routes = [
   { path: 'accueil', component: AccueilComponent, canActivate: [userGuard] },
@@ -30,6 +35,9 @@ export const routes: Routes = [
   { path: 'materiel', component: MaterielComponent },
   { path: 'ajoutvehicule', component: AjoutVehiculeComponent , canActivate: [ userGuard] },
   { path: 'edit-profil', component: EditProfilComponent },
+  { path: 'mes-rdv', component: MesRdvComponent, canActivate: [userGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [adminGuard] },
+  { path: 'ajoutrdv', component: AjoutrdvComponent, canActivate: [userGuard] },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNonTrouveComponent }
 ];

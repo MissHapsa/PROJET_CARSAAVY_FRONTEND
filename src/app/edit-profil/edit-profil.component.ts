@@ -59,15 +59,27 @@ export class EditProfilComponent implements OnInit {
             this.formulaire.value
           )
           .subscribe(
-            (resultat) => this.router.navigateByUrl('/accueil'),
-            (error) => console.error('There was an error!', error)
+            (resultat) => {
+              alert('Mise à jour réussie ! Les informations apparaitront a votre prochaine connexion.');
+              this.router.navigateByUrl('/userinfos');
+            },
+            (error) => {
+              alert('Il y a eu une erreur lors de la mise à jour.');
+              console.error('There was an error!', error);
+            }
           );
       } else {
         this.http
           .post('http://localhost:8080/utilisateur', this.formulaire.value)
           .subscribe(
-            (resultat) => this.router.navigateByUrl('/accueil'),
-            (error) => console.error('There was an error!', error)
+            (resultat) => {
+              alert('Mise à jour réussie ! Les informations apparaitront a votre prochaine connexion.');
+              this.router.navigateByUrl('/userinfos');
+            },
+            (error) => {
+              alert('Il y a eu une erreur lors de la mise à jour.');
+              console.error('There was an error!', error);
+            }
           );
       }
     }

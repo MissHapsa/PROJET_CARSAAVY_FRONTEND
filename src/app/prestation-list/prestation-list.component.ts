@@ -55,4 +55,8 @@ export class PrestationListComponent implements OnInit {
         console.error('Erreur lors de la suppression de la prestation', error);
       });
   }
+
+  getPrestations(): any[] {
+    return this.listePrestation;
+  }
 }

@@ -27,6 +27,8 @@ export class MesVehiculesComponent implements OnInit {
   Id: number = this.authentification.utilisateur.id;
 listeVehicule: any;
 i: any;
+  vehicules: any;
+
 
   ngOnInit(): void {
     this.getUtilisateurInfo(this.Id);
@@ -47,6 +49,9 @@ i: any;
         }
       );
   }
+  getVehicules() {
+    return this.vehicules;
+  }
 
   supprimerVehicule(id: number): void {
     const token = this.authentification.utilisateurConnecte;
@@ -62,4 +67,6 @@ i: any;
         }
       );
   }
+
 }
+

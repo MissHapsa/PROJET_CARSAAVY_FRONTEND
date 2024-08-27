@@ -20,10 +20,13 @@
           </p>
         </h1>
         <div class="button-container">
-        <button class="btn profil" routerLink="/profil">MON COMPTE</button>
-        <button class="btn prestations" routerLink="/prestation-list">PRESTATIONS ATELIER</button>
-        <button class="btn location" routerLink="/materiel">LOCATION MATERIEL</button>
-        <button class="btn vente" routerLink="/vente">VEHICULES OCCASION EN VENTE</button>
+        <button class="btn profil" routerLink="/profil">MON GARAGE</button>
+        <button class="btn prestations" routerLink="/prestation-list">Gerer les Prestations</button>
+        <button class="btn adherents" routerLink="/adherent-list">Gerer les Adherents</button>
+        <button class="btn techniciens" routerLink="/prestation-list">Gerer les Techniciens</button>
+        <button class="btn reservations" routerLink="/prestation-list">Gerer les reservations</button>
+        <button class="btn location" routerLink="/materiel">Gerer le Materiel</button>
+        <button class="btn vente" routerLink="/vente">Gerer les VEHICULES OCCASION EN VENTE</button>
         <button *ngIf="isAdmin" class="btn dashboard" routerLink="/dashboard">DASHBOARD</button>
       </div>
     </div>

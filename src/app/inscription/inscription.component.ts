@@ -57,13 +57,21 @@ export class InscriptionComponent {
     this.motDePasseDifferent =
       this.formulaire.get('passeword')?.value != this.confirmationMotDePasse;
 
-    if (this.formulaire.valid && !this.motDePasseDifferent) {
-      this.http
-        .post('http://localhost:8080/inscription', this.formulaire.value)
-        .subscribe((resultat) => {
-          alert('Inscription réussie ! Vous pouvez maintenant vous connecter');
-        })
-    }
+      if (this.formulaire.valid && !this.motDePasseDifferent) {
+        this.http
+          .post('http://localhost:8080/inscription', this.formulaire.value)
+          .subscribe(
+            (resultat) => {
+              alert('Inscription réussie ! Vous pouvez maintenant vous connecter');
+              this.router.navigateByUrl('/connexion');
+            },
+            (error) => {
+              alert('Il y a eu une erreur lors de l\'inscription.');
+              console.error('There was an error!', error);
+            }
+          );
+      }
+
   }
 
   verifierMotDePasseIdentique() {
