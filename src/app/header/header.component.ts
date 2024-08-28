@@ -10,6 +10,21 @@ import { AuthentificationService } from '../authentification.service';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+  getProfilRoute(): string {
+    const roleId = this.authentification.getUserRole();
+
+    switch (roleId) {
+      case 1:
+        return '/dashboard';  // Admin
+      case 2:
+        return '/profil-technicien';  // Technicien
+      case 3:
+        return '/accueil';  // Client
+      default:
+        return '/accueil';  // Redirection par défaut si le rôle n'est pas reconnu
+    }
+  }
+
   authentification = inject(AuthentificationService);
   router = inject(Router);
 

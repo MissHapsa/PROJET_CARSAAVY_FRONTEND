@@ -13,23 +13,27 @@
     <div class="mes-resa-section">
       <div *ngIf="reservations && reservations.length > 0">
         <h2>Mes Réservations</h2>
+
+  <div class="options">
+      <button class="mes-informations" routerLink="/ajoutrdv">
+        <span>Ajouter un RDV</span>
+      </button>
+  </div>
+  
         <div *ngFor="let reservation of reservations" class="resa_infos">
             <p><strong>Date:</strong> {{ reservation.dateReservation | date: 'dd/MM/yyyy' }}</p>
             <p><strong>Véhicule:</strong> {{ reservation.vehicule.immat }}</p>
             <p><strong>Prestation:</strong> {{ reservation.prestation.libelle }}</p>
             <p><strong>Statut:</strong> {{ reservation.statut }}</p>
+            <p><strong>Heure:</strong> {{ reservation.creneau }}</p>
         </div>
       </div>
       <div *ngIf="!reservations || reservations.length === 0">
         <p>Aucune réservation trouvée.</p>
       </div>
     </div>
-  
-    <div class="options">
-      <button class="mes-informations" routerLink="/ajoutrdv">
-        <span>Ajouter un RDV</span>
-      </button>
-    </div>
+
+
   </div>
 </body>
 </html>

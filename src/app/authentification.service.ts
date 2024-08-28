@@ -43,6 +43,7 @@ export class AuthentificationService {
   getUserRole(): number {
     return this.utilisateur ? this.utilisateur.role_id : null;
   }
+  
 
   deconnexion() {
     localStorage.removeItem('jwt');

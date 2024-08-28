@@ -45,7 +45,7 @@
           <button
             class="nav-link btn custom-btn"
             routerLinkActive="actuelle"
-            routerLink="/profil"
+            [routerLink]="getProfilRoute()"
           >
             {{ authentification.utilisateur.nom + " " + authentification.utilisateur.prenom }}
           </button>

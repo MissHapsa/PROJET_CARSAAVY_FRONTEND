@@ -70,12 +70,15 @@ export class AjoutVehiculeComponent implements OnInit {
 
   }
 
-  onSelectionMarque(){
-    this.listeModeleFiltre = this.listeModele.filter(model => model.marque.nom == this.selectedMarque.nom)
+  onSelectionMarque() {
+    if (this.selectedMarque) {
+      this.listeModeleFiltre = this.listeModele.filter(model => model.marque.nom === this.selectedMarque.nom);
+    }
   }
 
+
   getUtilisateurInfo(Id: number): void {
-    const token = this.authentification.utilisateurConnecte;
+    const token = this.authentification.utilisateur;
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     this.http
@@ -93,22 +96,39 @@ export class AjoutVehiculeComponent implements OnInit {
     console.log(this.formulaire);
     if (this.formulaire.valid) {
 
-      const token = this.authentification.utilisateurConnecte;
+      // Récupération du token d'authentification
+      const token = this.authentification.utilisateur;
+
+      if (!token) {
+        alert('Erreur : Vous devez être connecté pour ajouter un véhicule.');
+        return;
+      }
+
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      const vehicule = this.formulaire.value;
-      vehicule.id_Modele = this.selectedModele;
+
+      const vehicule = {
+        immat: this.formulaire.value.immat,
+        annee: this.formulaire.value.annee,
+        modele: this.selectedModele,  // Inclure l'objet `selectedModele`
+        utilisateur: { id: this.Id }  // Inclure l'ID de l'utilisateur connecté
+      };
+
+      const url = `http://localhost:8080/vehicule/utilisateur/${this.Id}`;
 
       this.http
-        .post('http://localhost:8080/vehicule', vehicule, { headers })  // Ajout des en-têtes ici
-        .subscribe((resultat) => {
-          console.log(resultat);
-          this.router.navigateByUrl('/mesvehicules');
-        });
+        .post(url, vehicule, { headers })
+        .subscribe(
+          (resultat) => {
+            console.log('Véhicule ajouté avec succès:', resultat);
+            this.router.navigateByUrl('/mesvehicules');
+          },
+          (error) => {
+            console.error('Erreur lors de l\'ajout du véhicule:', error);
+            alert('Une erreur est survenue lors de l\'ajout du véhicule.');
+          }
+        );
     }
   }
-
-
-
 
 
 

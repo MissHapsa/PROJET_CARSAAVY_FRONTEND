@@ -1,0 +1,30 @@
+<div class="prestation-container">
+  <button class="btn-return" routerLink="/dashboard">Retour</button>
+
+  <div class="row">
+    @for(vehicule of listeVehicule; track vehicule.id) {
+
+      <div class="col-6 mt-4">
+        <div class="prestation-card">
+          <div class="prestation-card-header">
+            <img class="prestation-card-image" src="https://picsum.photos/400" alt="Photo of a Shiba Inu"/>
+            <div class="prestation-card-title">
+              <span>{{ vehicule.modele.marque.nom }} {{ vehicule.modele.nom }}</span>
+            </div>
+          </div>
+          <div class="prestation-card-content">
+            <p><strong>Plaque d'immatriculation:</strong> {{ vehicule.immat}} </p>
+            <p><strong>Année:</strong> {{ vehicule.annee }}</p>
+            <p><strong>Propriétaire:</strong> {{ vehicule.utilisateur.prenom }} {{ vehicule.utilisateur.nom }}</p>
+          </div>
+          <div class="prestation-card-actions">
+            <button class="details-button">Reserver</button>
+            <button class="modify-button">Modifier</button>
+            <button class="delete-button" (click)="onSupprimerProduit(vehicule.id)">Supprimer</button>
+          </div>
+        </div>
+      </div>
+
+    }
+  </div>
+</div>

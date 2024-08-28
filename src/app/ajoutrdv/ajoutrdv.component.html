@@ -1,6 +1,6 @@
 <body>
   <div class="ajout">
-    <button class="btn-return" routerLink="/mes-vehicules">Retour</button>
+    <button class="btn-return" routerLink="/mes-rdv">Retour</button>
 
     <form class="formulaire ajout-container" (ngSubmit)="onSubmit()">
       <h1>Ajouter Un Rendez-Vous</h1>
@@ -10,6 +10,17 @@
       <mat-form-field appearance="fill">
         <mat-label>Date de Réservation</mat-label>
         <input matInput type="date" [(ngModel)]="dateReservation" name="dateReservation" placeholder="Choisir une date" required>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Créneau</mat-label>
+        <mat-select [(ngModel)]="selectedCreneau" name="creneau" required>
+          <mat-option [value]="'08:00:00'">8h-10h</mat-option>
+          <mat-option [value]="'10:00:00'">10h-12h</mat-option>
+          <mat-option [value]="'14:00:00'">14h-16h</mat-option>
+          <mat-option [value]="'16:00:00'">16h-18h</mat-option>
+        </mat-select>
       </mat-form-field>
       <br>
 
@@ -28,7 +39,7 @@
       <mat-form-field appearance="fill">
         <mat-label>Véhicule</mat-label>
         <mat-select (selectionChange)="onSelectionVehicule()" [(ngModel)]="selectedVehicule" [ngModelOptions]="{standalone:true}">
-         @for(vehicule of listeVehicules; track utilisateur.id){
+         @for(vehicule of listeVehicules; track vehicule.id){
             <mat-option [value]="listeVehicules">{{ vehicule.immat }} </mat-option>
           }
         </mat-select>

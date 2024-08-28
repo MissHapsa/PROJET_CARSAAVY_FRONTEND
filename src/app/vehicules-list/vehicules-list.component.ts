@@ -6,40 +6,35 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
 import { AuthentificationService } from '../authentification.service';
 
 @Component({
-  selector: 'app-prestation-list',
+  selector: 'app-vehicules-list',
   standalone: true,
   imports: [
     MatCardModule,
     HttpClientModule,
     RouterModule,
     RouterLink,
-    CommonModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule
   ],
-  templateUrl: './prestation-list.component.html',
-  styleUrl: './prestation-list.component.scss'
+  templateUrl: './vehicules-list.component.html',
+  styleUrl: './vehicules-list.component.scss'
 })
-export class PrestationListComponent implements OnInit {
+export class VehiculesListComponent implements OnInit {
   http: HttpClient = inject(HttpClient);
   authentification = inject(AuthentificationService);
-  listePrestation: any[] = [];
-  roleId: number | undefined;
+
+
+  listeVehicule: any[] = [];
 
   ngOnInit(): void {
-    // Récupérer le role_id de l'utilisateur connecté
-    this.roleId = this.authentification.getUserRole();
-
-    // Récupérer la liste des prestations
     this.http
-      .get<any[]>('http://localhost:8080/prestation/liste')
-      .subscribe((listePrestation) => {
-        this.listePrestation = listePrestation;
+      .get<any[]>('http://localhost:8080/vehicule/liste')
+      .subscribe((listeVehicule) => {
+        this.listeVehicule = listeVehicule;
       }, (error) => {
         console.error('Erreur lors de la récupération de la liste des prestations', error);
       });
@@ -50,13 +45,14 @@ export class PrestationListComponent implements OnInit {
       .delete('http://localhost:8080/prestation/' + id)
       .subscribe((resultat) => {
         console.log(resultat);
-        this.listePrestation = this.listePrestation.filter(prestation => prestation.id !== id);
+
+        this.listeVehicule = this.listeVehicule.filter(vehicule => vehicule.id !== id);
       }, (error) => {
         console.error('Erreur lors de la suppression de la prestation', error);
       });
   }
 
   getPrestations(): any[] {
-    return this.listePrestation;
+    return this.listeVehicule;
   }
 }

@@ -138,8 +138,8 @@ nav .nav-about {
   font-size: 20px;
   transition: 1.4s;
   color: white;
-  width: 200px;
-  height: 200px;
+  width: 145px;
+  height: 145px;
   margin-top: 30px;
   display: inline-block;
   position: absolute;
@@ -147,33 +147,52 @@ nav .nav-about {
 }
 
 .button-container button:nth-child(1) {
-    transform: rotate(0deg) translate(0, -150px) rotate(0deg);
-    top: 20%;
-    right: 40%;
+    transform: rotate(0deg) translate(0, -180px) rotate(0deg);
+    top: 50%;
+    left: 50%;
 }
 
 .button-container button:nth-child(2) {
-    transform: rotate(90deg) translate(0, -150px) rotate(-90deg);
-    top: 25%;
-    right: 25%;
+    transform: rotate(51.4deg) translate(0, -180px) rotate(-51.4deg);
+    top: 50%;
+    left: 50%;
 }
 
 .button-container button:nth-child(3) {
-    transform: rotate(180deg) translate(0, -150px) rotate(-180deg);
-    top: 33%;
-  right: 40%;
+    transform: rotate(102.8deg) translate(0, -180px) rotate(-102.8deg);
+    top: 50%;
+    left: 50%;
 }
 
 .button-container button:nth-child(4) {
-    transform: rotate(270deg) translate(0, -150px) rotate(-270deg);
-    top: 25%;
-  right: 55%;
+    transform: rotate(154.2deg) translate(0, -180px) rotate(-154.2deg);
+    top: 50%;
+    left: 50%;
 }
+
+.button-container button:nth-child(5) {
+    transform: rotate(205.6deg) translate(0, -180px) rotate(-205.6deg);
+    top: 50%;
+    left: 50%;
+}
+
+.button-container button:nth-child(6) {
+    transform: rotate(257deg) translate(0, -180px) rotate(-257deg);
+    top: 50%;
+    left: 50%;
+}
+
+.button-container button:nth-child(7) {
+    transform: rotate(308.4deg) translate(0, -180px) rotate(-308.4deg);
+    top: 50%;
+    left: 50%;
+}
+
 .button-container {
     position: relative;
-    width: 100%;
-    height: 600px;
-    margin: 0 auto;
+    width: 600px;
+    height: 240px;
+
 }
 
 .landing-page button:hover {
@@ -181,6 +200,20 @@ nav .nav-about {
   color: black;
   background-color: #e95b19;
   cursor: pointer;
+}
+
+
+.button-container button {
+    position: absolute;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.button-container button:hover {
+    transform: scale(1.1);
+    color: black;
+    background-color: #e95b19;
+    cursor: pointer;
 }
 
 .landing-page h1 {

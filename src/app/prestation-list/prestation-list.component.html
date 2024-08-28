@@ -2,6 +2,8 @@
   <button class="btn-return" routerLink="/accueil">Retour</button>
 
   <div class="row">
+    <button *ngIf="roleId === 1" class="ajout-button">Ajouter une Prestation</button>
+
     @for(prestation of listePrestation; track prestation.id) {
 
       <div class="col-6 mt-4">
@@ -17,6 +19,10 @@
           </div>
           <div class="prestation-card-actions">
             <button class="details-button">Reserver</button>
+
+          <!-- Boutons affichés uniquement pour les utilisateurs avec role_id = 1 -->
+    <button *ngIf="roleId === 1" class="modify-button">Modifier</button>
+    <button *ngIf="roleId === 1" class="delete-button" (click)="onSupprimerProduit(prestation.id)">Supprimer</button>
             <!--
             <button class="modify-button">Modifier</button>
             <button class="delete-button" (click)="onSupprimerProduit(prestation.id)">Supprimer</button>

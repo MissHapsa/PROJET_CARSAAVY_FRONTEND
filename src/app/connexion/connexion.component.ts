@@ -45,21 +45,37 @@ export class ConnexionComponent {
   onConnexion() {
     if (this.formulaire.valid) {
       this.http
-        .post<{ jwt: string }>(
+        .post<{ jwt: string, role_id: number }>(
           'http://localhost:8080/connexion',
           this.formulaire.value
         )
         .subscribe({
           next: (resultat) => {
             localStorage.setItem('jwt', resultat.jwt);
+            localStorage.setItem('role_id', resultat.role_id.toString());  // Stockez le rôle de l'utilisateur
             this.authentification.authentificationAvecJwtLocalStorage();
-            this.router.navigateByUrl('/accueil');
+
+            // Redirection basée sur le rôle
+            switch (resultat.role_id) {
+              case 1:  // Admin
+                this.router.navigateByUrl('/dashboard');
+                break;
+              case 2:  // Technicien
+                this.router.navigateByUrl('/profil-technicien');
+                break;
+              case 3:  // Client
+                this.router.navigateByUrl('/accueil');
+                break;
+              default:
+                this.router.navigateByUrl('/home');
+                break;
+            }
           },
           error: (reponse) => {
-            //alert('Les identifiants sont incorrets');
             this.erreurConnexion = true;
           },
         });
     }
   }
+  
 }

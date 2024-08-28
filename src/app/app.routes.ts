@@ -18,6 +18,7 @@ import {EditProfilComponent} from "./edit-profil/edit-profil.component";
 import { MesRdvComponent } from './mes-rdv/mes-rdv.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AjoutrdvComponent } from './ajoutrdv/ajoutrdv.component';
+import { VehiculesListComponent } from './vehicules-list/vehicules-list.component';
 
 
 
@@ -36,8 +37,9 @@ export const routes: Routes = [
   { path: 'ajoutvehicule', component: AjoutVehiculeComponent , canActivate: [ userGuard] },
   { path: 'edit-profil', component: EditProfilComponent },
   { path: 'mes-rdv', component: MesRdvComponent, canActivate: [userGuard] },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [adminGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [userGuard] },
   { path: 'ajoutrdv', component: AjoutrdvComponent, canActivate: [userGuard] },
+  { path:'vehicules-list', component: VehiculesListComponent, canActivate: [userGuard] },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: PageNonTrouveComponent }
 ];
